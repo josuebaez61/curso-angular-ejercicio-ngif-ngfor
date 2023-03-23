@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { EjercicioNgifNgforModule } from './ejercicios/ejercicio-ngif-ngfor/ejercicio-ngif-ngfor.module';
+import { EjercicioPipesNgclassModule } from './ejercicios/ejercicio-pipes-ngclass/ejercicio-pipes-ngclass.module';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { EjercicioNgifNgforModule } from './ejercicios/ejercicio-ngif-ngfor/ejer
   imports: [
     BrowserModule,
     EjercicioNgifNgforModule,
+    EjercicioPipesNgclassModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -10,8 +10,7 @@
   pintar la fila de la tabla aplicando la clase 'table-success'
 -->
 
-<app-loading></app-loading>
-
+<app-loading *ngIf="loading"></app-loading>
 <div class="container-fluid">
   <h1 class="mb-3">
     Tabla de usuarios
@@ -23,10 +22,22 @@
         <th>Nombre completo</th> <!-- Ojo aqui, nombre COMPLETO-->
         <th>E-mail</th>
         <th>Edad</th>
+        <th>Fecha de nacimiento</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <!-- AQUI COMPLETAR EL CONTENIDO -->
+      <tr *ngFor="let usuario of usuarios"  [ngClass]="usuario.isTop10 ? 'table-success' : ''">
+        <td>{{usuario.id}}</td>
+        <td>{{usuario.fullName | uppercase }}</td>
+        <td>{{usuario.email}}</td>
+        <td>{{usuario.age}}</td>
+        <td>{{usuario.birthdate | date: 'medium' }}</td>
+        <!-- EL CLICK ES UNA EMISION () DE ELEMENTO A COMPONENTE -->
+        <!-- EL ATRIBUTO [ID] ES UN TRASPASO DE DATA DE COMPONENTE A ELEMENTO -->
+        <!-- [()] ENLAZAMIENDO DE DOS VIAS -->
+        <td><button [id]="usuario.id" (click)="usuario.alternarTop10($event)">Alternar top10</button></td>
+      </tr>
     </tbody>
   </table>
 </div>

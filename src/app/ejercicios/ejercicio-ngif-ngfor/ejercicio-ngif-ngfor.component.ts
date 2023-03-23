@@ -7,6 +7,7 @@ import { Usuario } from 'src/app/models';
   styleUrls: ['./ejercicio-ngif-ngfor.component.css']
 })
 export class EjercicioNgifNgforComponent implements OnInit {
+  public loading = true;
   public usuarios: Usuario[] = [
     new Usuario(1, 'Naruto', 'Uzumaki', 'naruto@mail.com', 16, true, new Date('1994-01-03')),
     new Usuario(3, 'Sasuke', 'Uchiha', 'sasuke@mail.com', 16, false, new Date('1992-05-14')),
@@ -15,6 +16,8 @@ export class EjercicioNgifNgforComponent implements OnInit {
     new Usuario(6, 'Itachi', 'Uchiha', 'itachi@mail.com', 21, true, new Date('2002-07-24')),
   ];
   ngOnInit(): void {
-    // Este es el ciclo de vida ON INIT (al inicializarse) del componente...
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
   }
 }
